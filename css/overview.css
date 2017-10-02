@@ -1,0 +1,40 @@
+#overview-view-container {
+  width: 90%;
+  height: 100%;
+  max-width: 100vw;
+  max-height: 100vh;
+  margin-left: 35vh;
+  margin-top: 20vh;
+  color: white;
+}
+.pressed {
+  color: red;
+  text-shadow: 0 0 15px red;
+}
+.overview-container {
+  background:rgba(0,0,0,0.6);
+  display: inline-block;
+  border-radius: 7px;
+  border: 0px solid black;
+  margin-left: 1.5vw;
+  margin-top: 1.5vh;
+  padding: 0.5vw;
+  font-size: 2.5vh;
+  width: 100%;
+  height: 30vh;
+}
+
+}
+.overview-monnit-img {
+  max-width: 100%;
+  height: auto;
+}
+.overview-table {
+  margin-top: 1vh;
+  width: 96%;
+  font-size: 2vh;
+}
+.offset {
+    position: absolute;
+    right: 60px;
+}

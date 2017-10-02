@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Utility Week | Powerusage</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <link href="css/facility.css" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet">
+    <link href="css/power.css" rel="stylesheet">
+    <link href="css/admin.css" rel="stylesheet">
+    <link href="css/overview.css" rel="stylesheet">
+    <link href="css/magic.css" rel="stylesheet">
+    <link href="css/nv.d3.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=News+Cycle" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+       google.charts.load('current', {'packages':['gauge']});
+       google.charts.setOnLoadCallback(drawChart);
+
+       function drawChart() {
+
+         var data = google.visualization.arrayToDataTable([
+           ['Label', 'Value'],
+           ['Amp', 20],
+           ['Voltage', 10],
+           ['KWh', 7]
+         ]);
+
+         var options = {
+           width: 400, height: 120,
+           redFrom: 15, redTo: 20,
+           yellowFrom:10, yellowTo: 15,
+           minorTicks: 5
+         };
+
+         var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+
+         chart.draw(data, options);
+
+         setInterval(function() {
+           data.setValue(0, 1, 40 + Math.round(60 * Math.random()));
+           chart.draw(data, options);
+         }, 13000);
+         setInterval(function() {
+           data.setValue(1, 1, 40 + Math.round(60 * Math.random()));
+           chart.draw(data, options);
+         }, 5000);
+         setInterval(function() {
+           data.setValue(2, 1, 60 + Math.round(20 * Math.random()));
+           chart.draw(data, options);
+         }, 26000);
+       }
+     </script>
+  </head>
+  <body>
+
+    <div class="container" style="padding-top: 5%;" id="main-icon-view">
+      <div class="row" style="padding-bottom: 2%;">
+        <div class="col-xs-12">
+          <center><img src="images/Utilityweek logo.gif" id="EAT-logo"></center>
+        </div>
+      </div>
+      <div class="row"  style="display: none" id="icon-menu">
+          <div class="col-xs-6 clickable" id="power-management-icon"> <center>
+            <img src="images/Plug-01.png" ></img><center><h4><strong>Power Management</strong></h4></center>
+          </center>
+        </div>
+      </div>
+    </div>
+
+<!-- Facility Management View -->
+
+<!-- End of Facility Management -->
+
+
+<!-- Power Management -->
+    <div id="power-management-view" style="display:none"> <!--display:none refresh the page on reload-->
+      <div id="power-background-container">
+
+        <div id="power-headline-text">
+          <img src="images/Utilityweek logoS.jpg"></img><span style="color:grey">Power Management</span>
+        </div>
+        <div id="power-graph-container" class="power-container">
+          Energy Consumption
+          <div id="chart_div" style="width: 400px; height: 120px;"></div>
+          Real Time Analytics
+          <table class="table table-striped table-condensed responsive">
+            <tr>
+              <td class="pull-left"><strong>Current Power Usage</strong></td>
+              <td><strong><span id="power-current" class="pull-right"></span></strong></td>
+            </tr>
+            <tr>
+              <td class="pull-left"><strong>Average Power Usage</strong></td>
+              <td><strong><span id="power-average" class="pull-right"></span></strong></td>
+            </tr>
+          </table>
+        </div>
+        <div id="power-sparkline-container" class="power-container">
+          Real Time Energy Usage
+          <svg id="powerSparkLine"></svg>
+        </div>
+      </div>
+    </div>
+<!-- End of power management -->
+
+<!---Sensor overview -->
+    <div id="overview-view" style="display: none;">
+      <div id="overview-view-container">
+<img src="images/Utilityweek logoS.jpg"></img><span style="color:grey">Live current consumption</span>
+        <div class="row">
+          <div class="col-xs-4">
+            <div class="overview-container">
+              <div class="row">
+                <div class="col-xs-12"><strong>&nbsp&nbsp&nbspCurrent Sensor 20 Amp</strong><br><br></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-5">
+                  <img src="images/monnit-current-meter.png" class="img-responsive overview-monnit-img"></img>
+                </div>
+                <div class="col-xs-7">
+                  Current: <span id="overview-currentTwenty-specific" class="pull-right"></span><br>
+                  Battery: <span id="overview-currentTwenty-average" class="pull-right"></span><br><br>
+                  RSSI: <span id="overview-currentTwenty-rssi" class="pull-right"></span><br>
+                  Signal: <span id="overview-currentTwenty-signal" class="pull-right"></span><br>
+
+                </div>
+              </div>
+            </div>
+          </div>
+            <div class="col-xs-4">
+              <img src="images/Booth.png" class="offset"></img><br>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!--End of sensor overview -->
+
+<!--Account and Device Information view -->
+    <div id="admin-view" style="display: none;">
+      <div class="row">
+        <div class="col-xs-5">
+          <div class="admin-container">
+            <h2><span class="glyphicon glyphicon-user"></span>&nbsp&nbspAccount Information</h2>
+            <br><strong>Account Name: </strong><span id="admin-account-name" class="pull-right"></span><br>
+            <strong>Organization: </strong><span id="admin-organization-name" class="pull-right"></span><br>
+            <strong>Point of Contact: </strong><span id="admin-poc-email" class="pull-right"></span><br><br>
+            <div class="pull-right"><span class="glyphicon glyphicon-log-out clickable" onclick="logout()"></span></div>
+          </div>
+        </div>
+        <div class="col-xs-5">
+          <div class="admin-container">
+            <h2><span class="glyphicon glyphicon-hdd"></span>&nbsp&nbspDevice Information</h2>
+            <br><strong>Client ID: </strong><span id="device-client-id" class="pull-right"></span><br>
+            <strong>Name: </strong><span id="device-name" class="pull-right"></span><br>
+            <strong>Model: </strong><span id="device-model" class="pull-right"></span><br>
+            <strong>Serial Number: </strong><span id="device-serial-number" class="pull-right"></span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-5">
+          <div class="admin-container">
+            <h2><span class="glyphicon glyphicon-cloud"></span>&nbsp&nbspConnection Status </h2><br>
+            <center>
+              <span id="device-connection-status" class="large-text"></span><br>
+              <strong>Last Event:</strong> <span id="device-last-event"></span><br>
+              <strong>Date:</strong> <span id="device-last-event-date"></span>
+            </center>
+          </div>
+        </div>
+          <div class="col-xs-5">
+          <div class="relative">
+           <img src="images/Utilityweek logo.gif"></img>
+          </div>
+          </div>
+        </div>
+      </div>
+</div>
+    <!--End of account and device info view-->
+<!--Menu bar in top right corner-->
+    <div id="menu-bar" >
+      <img src="images/House-01.png" class="menu-icon-small clickable" onclick="initFacilityManagementView()"></img>&nbsp
+      <img src="images/Plug-01.png" class="menu-icon-small clickable" onclick="initPowerManagementView()"></img>&nbsp
+    </div>
+    <div id="admin-icons">
+        <span class="glyphicon glyphicon-home menu-glyphicons clickable" onclick="goHome()"></span><br><br>
+        <span class="glyphicon glyphicon-cog menu-glyphicons clickable"  onclick="initAdmin()"></span><br><br>
+        <span class="glyphicon glyphicon-th menu-glyphicons clickable" onclick="initOverview()"></span>
+    </div>
+
+    <script src="js/jquery/jquery-2.1.3.min.js"></script>
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <script src="js/mqtt/Long.min.js"></script>
+    <script src="js/mqtt/ByteBufferAB.min.js"></script>
+    <script src="js/mqtt/ProtoBuf.min.js"></script>
+    <script src="js/mqtt/mqttws31.js"></script>
+    <script src="js/mqtt/jsxcompressor.min.js"></script>
+    <script src="js/mqtt/mqtt-message.js"></script>
+    <script src="js/util/moment.js"></script>
+    <script src="js/util/login.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0UgPMJkHLCfiS1JF7AAPGi3A9WnOBqX8"></script>
+    <script src="js/steelseries/steelseries-min.js"></script>
+    <script src="js/steelseries/tween-min.js"></script>
+    <script src="js/d3/d3.min.js"></script>
+    <script src="js/d3/nv.d3.min.js"></script>
+    <script src="js/eurotech/main.js"></script>
+    <script src="js/eurotech/util.js"></script>
+    <script src="js/eurotech/monnit-sensors.js"></script>
+    <script src="js/eurotech/asset-widgets.js"></script>
+    <script src="js/eurotech/facility-widgets.js"></script>
+    <script src="js/eurotech/overview.js"></script>
+    <script src="js/eurotech/admin.js"></script>
+    <script src="js/eurotech/map.js"></script>
+
+  </body>
+</html>

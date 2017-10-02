@@ -1,0 +1,313 @@
+#facility-management-view {
+  height: 100%;
+  width: 100%;
+}
+#facility-background-container {
+  position: center;
+  min-height: 100%;
+  min-width: 250px;
+
+}
+#facility-background-image {
+  position: absolute;
+  left: 25%;
+  top: 39%;
+}
+#facility-EAT-logo {
+  position: absolute;
+  max-width: 350px;
+  font-size: 1.8vw;
+  width:30%;
+  left: 50%;
+  top: 15%;
+}
+#facility-house-text {
+  position: absolute;
+  font-size: 2vw;
+  left: 0.5%;
+  top: 85%;
+}
+#facility-temp-sensor {
+  position: absolute;
+  width: 2.5%;
+  left: 37.5%;
+  top: 39%;
+}
+#facility-temp-reading {
+  position: absolute;
+  left: 36%;
+  top: 44%;
+}
+#facility-temperature-expanded {
+  position: absolute;
+  left: 42%;
+  top: 38%;
+}
+#facility-temperature-chart{
+  width: 31vw;
+  min-width: 100%;
+  height: 23vh;
+  min-height: 100px;
+  overflow: auto;
+}
+#facility-open-close-sensor {
+  position: absolute;
+  width: 2.5%;
+  left: 59.5%;
+  top: 45%;
+}
+#facility-open-close-canvas {
+  position: absolute;
+  background-color: #232323;
+  left: 62%;
+  top: 44.3%;
+  width: 2.5%;
+  height: 3.5%;
+  -ms-transform: skewY(-30deg); /* IE 9 */
+  -webkit-transform: skewY(-30deg); /* Chrome, Safari, Opera */
+  transform: skewY(-30deg);
+}
+#facility-open-close-shadow {
+  position: relative;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 3.8vh 3vh 0 0;
+  border-color: #595959 transparent transparent transparent;
+  -ms-transform: rotate(-90deg); /* IE 9 */
+  -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+  transform: rotate(-90deg);
+  top: 6%;
+  left: 12%;
+}
+#facility-open-close-door {
+  position: absolute;
+  background-image: url("../images/garage-door.jpg");
+  border-bottom: 1px solid black;
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+}
+#facility-open-close-alert {
+  position: absolute;
+  left: 56.2%;
+  top: 49.7%;
+}
+#facility-asset-sensor {
+  position: absolute;
+  width: 2.5%;
+  left: 77%;
+  top: 36%;
+}
+#facility-openClosed-expanded {
+  position: absolute;
+  top: 40%;
+  right: 40%;
+}
+
+#facility-asset-alert {
+  position: absolute;
+  left: 74%;
+  top: 41%;
+}
+#facility-asset-expanded {
+  position: absolute;
+  top: 33%;
+  right: 25%;
+}
+#facility-light-sensor {
+  position: absolute;
+  width: 2.5%;
+  left: 34.5%;
+  top: 72%;
+}
+#facility-light-ongraphic {
+  position: absolute;
+  width: 8.3535%;
+  left: 28.301%;
+  top: 67.2%;
+}
+#facility-lightPresence-expanded {
+  position: absolute;
+  bottom: 29%;
+  left: 39%;
+}
+#facility-expanded-lightbulb {
+  position: relative;
+  left: -2vw;
+  width: 25vw;
+}
+#facility-water-sensor {
+  position: absolute;
+  width: 2.5%;
+  left: 26%;
+  top: 67%;
+}
+#facility-water-alert {
+  position: absolute;
+  left: 15%;
+  top: 72%;
+}
+#facility-water-expanded {
+  position: absolute;
+  bottom: 33%;
+  left: 30%;
+}
+#facility-water-animation {
+  position: absolute;
+  bottom: 0%;
+  left: 10%;
+  max-width: 20vw;
+  background-color: blue;
+}
+#facility-water-leak-container {
+  width: 100%;
+  border-radius: 7px;
+}
+.wave {
+  position: relative;
+  bottom: 0;
+  background: #7ecef4;
+  opacity: 0.2;
+  display: inline-block;
+  height: 35%;
+  width: 10px;
+  z-index: 5 !important;
+  animation-name: dostuff;
+  animation-duration: 2.74159s;
+  animation-iteration-count: infinite;
+  transition-timing-function: ease-in-out;
+}
+.wave-anim {
+  position: absolute;
+  bottom: 0;
+  background: #002e73;
+  opacity: 0.5;
+  display: inline-block;
+  height: 17%;
+  width: 10px;
+  position: absolute;
+  z-index: 5 !important;
+  animation-name: wavey_stuff;
+  animation-duration: 2.54s;
+  animation-iteration-count: infinite;
+  transition-timing-function: ease-in-out;
+}
+@keyframes wavey_stuff {
+  0% {height: 12%;}
+  50% {height: 16%;}
+  100% {height: 12%;}
+}
+#facility-warnings {
+  position: absolute;
+  left: 0.5%;
+  top: 3%;
+  width: 20vw;
+  margin-top: 5px;
+}
+.facility-temperature-current-container {
+  border-radius: 0.3vw;
+  padding: 0.3vw;
+  margin-bottom: 1vh;
+  text-align: center;
+  background:#dca923;
+  height: 100%;
+  overflow: hidden;
+}
+.facility-temperature-high-container {
+  border-radius: 0.3vw;
+  padding: 0.3vw;
+  margin-bottom: 1vh;
+  text-align: center;
+  background:#dc2323;
+  height: 100%;
+  overflow: hidden;
+}
+.facility-temperature-low-container {
+  border-radius: 0.3vw;
+  padding: 0.3vw;
+  text-align: center;
+  background:#2375dc;
+  height: 100%;
+  overflow: hidden;
+}
+.facility-expanded-monnit {
+  width: 60%;
+  min-width: 2vw;
+  padding: 0px;
+  margin-left: 2vw;
+  overflow: hidden;
+}
+.facility-expanded-monnit-alone {
+  width: 60%;
+  min-width: 2vw;
+  padding: 0px;
+  overflow: hidden;
+}
+.facility-expanded-monnit-water {
+  width: 100%;
+  min-width: 2vw;
+  padding: 0px;
+  margin-left: 2vw;
+  overflow: hidden;
+}
+.facility-reading {
+  background:rgba(0,0,0,0.6);
+  display: inline-block;
+  border-radius: 7px;
+  border: 0px solid black;
+  padding: 5px;
+  font-size: 1.4vw;
+  text-align: center;
+}
+.facility-expanded {
+  background: #4e5d6c;
+  display: inline-block;
+  border-radius: 7px;
+  border: 0px solid gray;
+  padding: 0.5%;
+  font-size: 1vw;
+  width: 1vw;
+  height: 1vh;
+  overflow: hidden;
+}
+.expanded-content-table {
+  font-size: 1vw;
+}
+.expanded-content-img {
+  width: 7vw;
+}
+.expanded-content-h1 {
+  font-size: 5vh;
+}
+.expanded-content-h2 {
+  font-size: 3vh;
+}
+.warning-message {
+  font-size: 1.1vw;
+  width: 100%;
+  background:rgba(0,0,0,0.6);
+  display: inline-block;
+  border-radius: 7px;
+  border: 0px solid white;
+  padding: 5px;
+  margin-bottom: 1vh;
+  text-align: right;
+}
+.close-responsive {
+  max-height: 0.3vh;
+}
+svg {
+  fill: white;
+  overflow: hidden;
+  min-height: 100%;
+  min-width: 100%;
+  margin-left: 0.1vw;
+}
+.nvd3 .nv-axis.nv-x text {
+  font-size: 0.9vw;
+}
+.nvd3 .nv-axis.nv-y text {
+  font-size: 0.9vw;
+}
